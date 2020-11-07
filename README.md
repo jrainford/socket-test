@@ -23,7 +23,7 @@ A domain socket will be created at `/tmp/test.sock`. You can connect to it with 
 
 # run netcat from 2 or more seperate terminal windows, or use eg tmux
 ```
-nc -U /tmp/test2.sock
+nc -U /tmp/test.sock
 ```
 
 <p align="middle">
