@@ -23,6 +23,7 @@ const server = net.createServer(client => {
 })
 
 const teardown = err => {
+  console.log(`\nteardown`)
   clients.forEach(client => client.end())
   server.listening && server.close()
   fs.existsSync(SOCKET_PATH) && fs.unlinkSync(SOCKET_PATH)
@@ -32,9 +33,10 @@ const teardown = err => {
   }
 }
 
+console.log(module.filename);
 process.on('SIGINT', () => teardown(null))
 process.on('uncaughtException', err => teardown(err))
 
 server.listen(SOCKET_PATH, () => {
-  console.log('\u001bcsocket server listening at', SOCKET_PATH)
+  console.log('socket server listening at', SOCKET_PATH)
 })
